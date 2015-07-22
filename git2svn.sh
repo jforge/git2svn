@@ -37,6 +37,7 @@ function svn_checkin {
 
 function svn_commit {
 	echo "... committing -> [$author]: $msg";
+	cd $SVN_DIR && svn $SVN_AUTH update && cd $BASE_DIR;
 	cd $SVN_DIR && svn $SVN_AUTH commit -m "[$author]: $msg" && cd $BASE_DIR;
 	echo '... committed!'
 }
